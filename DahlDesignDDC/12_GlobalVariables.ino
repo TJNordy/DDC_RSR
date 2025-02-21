@@ -45,6 +45,8 @@ int8_t biteButtonRow;
 int8_t biteButtonCol;
 int8_t presetButtonRow;
 int8_t presetButtonCol;
+int8_t qsButtonRow;
+int8_t qsButtonCol;
 
 //Clutch calibration
 int16_t slaveReleasedLow = 0;
