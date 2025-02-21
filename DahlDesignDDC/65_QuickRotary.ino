@@ -699,7 +699,7 @@ void quickRotary4(int analogChannel, int fieldPlacement, int pos1, int pos2, int
     rotaryField = rotaryField | push;
 }
 
-void quickRotary1PulseBite(int analogChannel, int fieldPlacement, int pos1, int pos2, int pos3, int pos4, int pos5, int pos6, int pos7, int pos8, int pos9, int pos10, int pos11, int pos12, bool reverse, uint8_t offset, int8_t starterRow, int8_t starterCol, int8_t quickSwitchRow, int8_t quickSwitchCol)
+void quickRotary1PulseBite(int analogChannel, int fieldPlacement, int pos1, int pos2, int pos3, int pos4, int pos5, int pos6, int pos7, int pos8, int pos9, int pos10, int pos11, int pos12, bool reverse, uint8_t offset, int8_t starterRow, int8_t starterCol)
 {
     int N = analogChannel - 1;
 
@@ -783,7 +783,7 @@ void quickRotary1PulseBite(int analogChannel, int fieldPlacement, int pos1, int 
             //----------------QUICK SWITCH SETTING----------
             //----------------------------------------------
 
-            else if (pushState[quickSwitchRow - 1][quickSwitchCol - 1] == 1)
+            else if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
             {
                 quickValue1 = result;
             }
