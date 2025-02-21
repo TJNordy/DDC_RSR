@@ -21,9 +21,9 @@ int rotaryField = 0;
  6
  5
  4
- 3
- 2
- 1
+ 3 -- Rotary Switch 3
+ 2 -- Rotary Switch 2
+ 1 -- Rotary Switch 1
  Least significant
 
  */

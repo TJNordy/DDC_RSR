@@ -28,10 +28,10 @@ void presets(int8_t presetNumber)
     bitePoint = 300;
     brakeMagicValue = 50;
     throttleHoldValue = 1000;
-    quickValue4 = 11;
-    quickValue3 = 11;
-    quickValue2 = 11;
-    quickValue1 = 11;
+    quickValue1 = 3;
+    quickValue2 = 0;
+    quickValue3 = 2; 
+    quickValue4 = 11;   
 
     //----------------------------------------
     //-----------EEPROM UPDATES---------------
@@ -46,7 +46,10 @@ void presets(int8_t presetNumber)
     switch (presetNumber)
     {
     case 0: //PRESET 1 
-
+    analogSwitchMode1[1] = 1;
+    analogSwitchMode1[2] = 1;
+    analogSwitchMode1[4] = 1;
+    analogSwitchMode1[5] = 1;
         break;
     case 1: //PRESET 2 
 

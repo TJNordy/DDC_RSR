@@ -11,7 +11,7 @@
 // ---------------------------- STRIP #1 SETUP -------------------------------
 //----------------------------------------------------------------------------
 
-#define LED1COUNT 0
+#define LED1COUNT 16
 #define LED1PIN 25
 #define LED1TYPE NEO_GRB + NEO_KHZ800
 #define LED1REVERSE 0

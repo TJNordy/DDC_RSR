@@ -10,21 +10,21 @@ const uint8_t colCount = 8;
 uint8_t buttonNumber[rowCount][colCount] =
 {
   
-  { 0, 1, 2, 3, 4, 5, 6, 7 },             //ROW 1, COLUMN 1-8
+  { 15, 5, 6, 7, 8, 9, 0, 0 },             //ROW 1, COLUMN 1-8
 
-  { 8, 9, 10, 11, 12, 13, 14, 15 },       //ROW 2, COLUMN 1-8
+  { 1, 21, 27, 17, 2, 24, 30, 18 },       //ROW 2, COLUMN 1-8
 
-  { 16, 17, 18, 19, 20, 21, 22, 23 },     //ROW 3, COLUMN 1-8
+  { 0, 0, 0, 0, 0, 0, 3, 0 },     //ROW 3, COLUMN 1-8
 
-  { 24, 25, 26, 27, 28, 29, 30, 31 },     //ROW 4, COLUMN 1-8
+  { 16, 0, 10, 0, 11, 14, 12, 13 },     //ROW 4, COLUMN 1-8
 
-  { 32, 33, 34, 35, 36, 37, 38, 39 },     //ROW 5, COLUMN 1-8
+  { 19, 0, 25, 0, 28, 0, 22, 0 },     //ROW 5, COLUMN 1-8
 
-  { 40, 41, 42, 43, 44, 45, 46, 47 },     //ROW 6, COLUMN 1-8
+  { 0, 0, 0, 0, 0, 0, 0, 0 },     //ROW 6, COLUMN 1-8
 
-  { 48, 49, 50, 51, 52, 53, 54, 55 },     //ROW 7, COLUMN 1-8
+  { 0, 0, 0, 0, 0, 0, 0, 0 },     //ROW 7, COLUMN 1-8
 
-  { 56, 57, 58, 59, 60, 61, 62, 63 }      //ROW 8, COLUMN 1-8  
+  { 0, 0, 0, 0, 0, 0, 0, 0 }      //ROW 8, COLUMN 1-8  
   
 };
 
@@ -39,10 +39,10 @@ uint8_t analogPins[analogChannelCount] =
 { ADC1, ADC2, ADC3, ADC4, ADC5, ADC6, ADC7, ADC8, ADC9, ADC10, ADC11, ADC12 };
 
 uint8_t analogButtonNumber[analogChannelCount] =         //ANALOG BUTTONS 1
-{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+{ 0, 55, 31, 0, 69, 83, 0, 0, 0, 0, 0, 0 };
 
 uint8_t analogButtonNumberIncMode[analogChannelCount] =  //ANALOG BUTTONS 2
-{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+{ 0, 67, 0, 0, 81, 95, 0, 0, 0, 0, 0, 0 };
 
 
 //---------------------------------------

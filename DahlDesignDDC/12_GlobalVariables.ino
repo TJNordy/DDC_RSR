@@ -6,6 +6,8 @@ long globalTimer = 0;
 uint8_t globalCounter = 0;
 uint16_t versionField = 0;
 
+bool ADCfirst = true;
+
 //Handbrake
 bool handbrake = false;
 bool handbrakeLock = false;
@@ -26,6 +28,9 @@ uint8_t quickValue4;
 bool quickSwitchState;
 bool quickSwitch12State;
 bool quickSwitch34State;
+bool qs1LastState = false;
+bool qs2LastState = false;
+bool qs3LastState = false;
 
 //Function buttons
 int8_t hybridButtonRow;

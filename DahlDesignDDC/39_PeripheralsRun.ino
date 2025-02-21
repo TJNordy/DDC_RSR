@@ -310,6 +310,10 @@ void ADC1_CB1(int alertPin)
     if (channelCount1 >= CB1_ADC1_CHANNELS)
     {
       channelCount1 = 0;
+      if(ADCfirst)
+      {
+        ADCfirst = false;
+      }
     }
   }
 
@@ -352,6 +356,10 @@ void ADC1_CB1(int alertPin)
       if (channelCount1 >= CB1_ADC1_CHANNELS)
       {
         channelCount1 = 0;
+        if(ADCfirst)
+        {
+          ADCfirst = false;
+        }
       }
     }
   }
@@ -395,6 +403,10 @@ void ADC2_CB1(int alertPin)
     if (channelCount2 >= CB1_ADC2_CHANNELS)
     {
       channelCount2 = 0;
+      if(ADCfirst)
+      {
+        ADCfirst = false;
+      }
     }
   }
 
@@ -437,6 +449,10 @@ void ADC2_CB1(int alertPin)
       if (channelCount2 >= CB1_ADC2_CHANNELS)
       {
         channelCount2 = 0;
+        if(ADCfirst)
+        {
+          ADCfirst = false;
+        }
       }
     }
   }
@@ -588,6 +604,10 @@ void ADS1115Run(int chipNumber, int channelCount, int rate, int gain)
       if (ADS1115channelCounter[Chip] >= channelCount)
       {
         ADS1115channelCounter[Chip] = 0;
+        if(ADCfirst)
+        {
+          ADCfirst = false;
+        }
       }
     }
 
@@ -630,6 +650,10 @@ void ADS1115Run(int chipNumber, int channelCount, int rate, int gain)
         if (ADS1115channelCounter[Chip] >= channelCount)
         {
           ADS1115channelCounter[Chip] = 0;
+          if(ADCfirst)
+          {
+            ADCfirst = false;
+          }
         }
       }
     }
@@ -655,7 +679,6 @@ void ADS1115Run(int chipNumber, int channelCount, int rate, int gain)
  
     if (ADS1115sentReq[Chip] && digitalRead(ADS1115_alertPins[Chip]) == 0)
     {
-
       Wire.beginTransmission(address);
       Wire.write(0b00000000);
       Wire.endTransmission();
@@ -676,6 +699,10 @@ void ADS1115Run(int chipNumber, int channelCount, int rate, int gain)
       if (ADS1115channelCounter[Chip] >= channelCount)
       {
         ADS1115channelCounter[Chip] = 0;
+        if(ADCfirst)
+        {
+          ADCfirst = false;
+        }
       }
     }
 
@@ -718,6 +745,10 @@ void ADS1115Run(int chipNumber, int channelCount, int rate, int gain)
         if (ADS1115channelCounter[Chip] >= channelCount)
         {
           ADS1115channelCounter[Chip] = 0;
+          if(ADCfirst)
+          {
+            ADCfirst = false;
+          }
         }
       }
     }
