@@ -19,6 +19,7 @@
 //------------------------------
 
 #define RESET_EEPROM 0
+#define USING_RP2040EEPROM 1
 #define USING_32U4EEPROM 0
 
 //------------------------------
@@ -34,11 +35,16 @@
 #define ENABLE_OVERSAMPLING 0
 
 //------------------------------
-//-------DAHL DESIGN CB1--------
+//-------DAHL DESIGN BOARDS-----
 //------------------------------
 
-//Enable CB1 board
+//Enable board
 #define USING_CB1 1
+#define USING_CB2 0
+
+//------------------------------
+//---------CB1 SETTINGS---------
+//------------------------------
 
 //ADC setup
 #define CB1_ADC1 1
@@ -179,6 +185,17 @@ bool wire0Init = false;
 #define ADC20 69
 #define ADC_CORR 50
 
+//DDC ID DEFINES
+#define DDCID 1
+#define CB1ID 2
+#define CB2ID 3
+
+//DDC VERSION
+
+#define MAJORVERSION 2
+#define MINORVERSION 12
+#define PATCHVERSION 0
+
 //------------------------------
 //---------LIBRARIES------------
 //------------------------------
@@ -200,6 +217,6 @@ bool wire0Init = false;
   #include <Wire.h>
 #endif
 
-#if (USING_32U4EEPROM == 1)
+#if (USING_32U4EEPROM == 1 || USING_RP2040EEPROM == 1)
   #include <EEPROM.h>
 #endif
