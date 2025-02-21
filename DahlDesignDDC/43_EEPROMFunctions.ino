@@ -136,6 +136,12 @@ void EEPROMfirst()
             delay(5);
             write16bitToEEPROM(THROTTLESLOT+(i*2), 1000);
             delay(5);
+            write16bitToEEPROM(QUICKVALUE1SLOT+(i*2), 3);
+            delay(5);
+            write16bitToEEPROM(QUICKVALUE2SLOT+(i*2), 0);
+            delay(5);
+            write16bitToEEPROM(QUICKVALUE3SLOT+(i*2), 2);
+            delay(5);
         }
         write16bitToEEPROM(DDS_b, 0);
         delay(5);
@@ -151,7 +157,10 @@ void EEPROMinit()
     LEDBrightness = read16bitFromEEPROM(LEDSLOT+(switchPreset*2));
     brakeMagicValue = read16bitFromEEPROM(BRAKESLOT+(switchPreset*2));
     throttleHoldValue = read16bitFromEEPROM(THROTTLESLOT+(switchPreset*2));
-
+    quickValue1 = read16bitFromEEPROM(QUICKVALUE1SLOT+(switchPreset*2));
+    quickValue2 = read16bitFromEEPROM(QUICKVALUE2SLOT+(switchPreset*2));
+    quickValue3 = read16bitFromEEPROM(QUICKVALUE3SLOT+(switchPreset*2));
+  
     MFP = read16bitFromEEPROM(MASTERPRESSED);
     MFR = read16bitFromEEPROM(MASTERRELEASED);
     SFP = read16bitFromEEPROM(SLAVEPRESSED);
@@ -161,6 +170,9 @@ void EEPROMinit()
     oldLED = LEDBrightness;
     oldBrake = brakeMagicValue;
     oldThrottle = throttleHoldValue;
+    oldQuickValue1 = quickValue1;
+    oldQuickValue2 = quickValue2;
+    oldQuickValue3 = quickValue3;
 #endif
 
 }
@@ -199,7 +211,25 @@ void EEPROMchanges()
     {
       oldThrottle = throttleHoldValue;
       write16bitToEEPROM(THROTTLESLOT+(switchPreset * 2), throttleHoldValue);
-    }    
+    }
+    //QuickValue 1
+    if (oldQuickValue1 != quickValue1)
+    {
+      oldQuickValue1 = quickValue1;
+      write16bitToEEPROM(QUICKVALUE1SLOT+(switchPreset * 2), quickValue1);
+    }
+    //QuickValue 2
+    if (oldQuickValue2 != quickValue2)
+    {
+      oldQuickValue2 = quickValue2;
+      write16bitToEEPROM(QUICKVALUE2SLOT+(switchPreset * 2), quickValue2);
+    }
+    //QuickValue 3
+    if (oldQuickValue3 != quickValue3)
+    {
+      oldQuickValue3 = quickValue3;
+      write16bitToEEPROM(QUICKVALUE3SLOT+(switchPreset * 2), quickValue3);
+    }
 
 #endif
 }
@@ -211,5 +241,8 @@ void EEPROMpresetChange()
     LEDBrightness = read16bitFromEEPROM(LEDSLOT + switchPreset * 2);
     brakeMagicValue = read16bitFromEEPROM(BRAKESLOT + switchPreset * 2);
     throttleHoldValue = read16bitFromEEPROM(THROTTLESLOT + switchPreset * 2);
+    quickValue1 = read16bitFromEEPROM(QUICKVALUE1SLOT + switchPreset * 2);
+    quickValue2 = read16bitFromEEPROM(QUICKVALUE2SLOT + switchPreset * 2);
+    quickValue3 = read16bitFromEEPROM(QUICKVALUE3SLOT + switchPreset * 2);
     #endif
 }
