@@ -1,5 +1,9 @@
 void quickSwitch(int8_t row, int8_t column)
 {
+
+    qsButtonRow = row;
+    qsButtonCol = column;
+    
     int8_t Row = row - 1;
     int8_t Column = column - 1;
     int8_t Number = buttonNumber[Row][Column];
