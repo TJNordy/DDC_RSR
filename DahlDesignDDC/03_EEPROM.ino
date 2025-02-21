@@ -22,6 +22,9 @@
 #define BRAKESLOT 384
 #define THROTTLESLOT 512
 #define PRESETSLOT 640
+#define QUICKVALUE1 768
+#define QUICKVALUE2 896
+#define QUICKVALUE3 1024
 
 uint8_t EEPROMdump;
 
@@ -34,4 +37,7 @@ int oldLED;
 float oldBrake;
 float oldThrottle;
 int oldPreset;
+int oldQuickValue1;
+int oldQuickValue2;
+int oldQuickValue3;
 #endif
