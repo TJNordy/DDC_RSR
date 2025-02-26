@@ -106,7 +106,7 @@ void EC16Multis(int row, int column, int fieldPlacement, int positions1, int pos
             //If we're in pseudomulti, change counter
             if (!(switchMode[Row][Column] && switchMode[Row][Column + 1]))
             {
-                if ((pushState[Row][Column + 1] > 0 && pushState[Row][Column + 1] < 6) || pushState[Row][Column + 1] < -6)
+                if ((pushState[Row][Column + 1] > 0 && pushState[Row][Column + 1] < 2) || pushState[Row][Column + 1] < -2)
                 {
                     pushState[Row][Column + 2] = pushState[Row][Column + 2] + 1 - (2 * Reverse);
                 }
@@ -137,7 +137,7 @@ void EC16Multis(int row, int column, int fieldPlacement, int positions1, int pos
             {
                 if (globalClock - switchTimer[Row][Column + 1] < encoderPulse)
                 {
-                    if ((difference > 0 && difference < 6) || difference < -6)
+                    if ((difference > 0 && difference < 2) || difference < -2)
                     {
                         Joystick.setButton(Number + Reverse, 1);
                         Joystick.setButton(Number + 1 - Reverse, 0);
