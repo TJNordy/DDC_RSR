@@ -28,9 +28,6 @@ uint8_t quickValue4;
 bool quickSwitchState;
 bool quickSwitch12State;
 bool quickSwitch34State;
-bool qs1LastState = false;
-bool qs2LastState = false;
-bool qs3LastState = false;
 
 //Function buttons
 int8_t hybridButtonRow;
