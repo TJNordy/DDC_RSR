@@ -14,7 +14,7 @@ void EC16Multis(int row, int column, int fieldPlacement, int positions1, int pos
 
     int maxPos = max(positions3, (max(positions2, max(12, positions1))));
 
-    bool array[3] = { Pin1, Pin2, Pin3,};
+    bool array[3] = { Pin1, Pin2, Pin3 };
 
     int pos = 0;
 
