@@ -10,11 +10,11 @@ void EC16Multis(int row, int column, int fieldPlacement, int positions1, int pos
 
     bool Pin1 = rawState[Row][Column];
     bool Pin2 = rawState[Row][Column + 1];
-    bool Pin3 = rawState[Row][Column + 2]
+    bool Pin3 = rawState[Row][Column + 2];
 
     int maxPos = max(positions3, (max(positions2, max(12, positions1))));
 
-    bool array[4] = { Pin1, Pin2, Pin3, Pin4 };
+    bool array[3] = { Pin1, Pin2, Pin3,};
 
     int pos = 0;
 
