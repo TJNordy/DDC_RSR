@@ -243,6 +243,15 @@ void SW1PresetRotaryPulse(int analogChannel, int fieldPlacement, int pos1, int p
         }
         else if (globalClock - analogTimer1[N] > analogWait)
         {
+            
+            //----------------------------------------------
+            //----------------QUICK SWITCH SETTING----------
+            //----------------------------------------------
+
+            if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
+            {
+                quickValue3 = result;
+            }
 
             //----------------------------------------------
             //----------------MODE CHANGE-------------------
@@ -251,7 +260,7 @@ void SW1PresetRotaryPulse(int analogChannel, int fieldPlacement, int pos1, int p
             //Due to placement of this scope, mode change will only occur on switch rotation.
             //If you want to avoid switching mode, set fieldPlacement to 0.
 
-            if (pushState[modButtonRow - 1][modButtonCol - 1] == 1)
+            else if (pushState[modButtonRow - 1][modButtonCol - 1] == 1)
             {
                 for (int i = 0; i < maxPos + 1; i++) //Remove the remnants from SWITCH MODE 1
                 {
@@ -319,18 +328,7 @@ void SW1PresetRotaryPulse(int analogChannel, int fieldPlacement, int pos1, int p
           value = quickValue3;
         }
 
-        if (!qs3LastState && (quickSwitchState || quickSwitch34State))
-        {
-          qs3LastState = true;
-          analogTimer2[N] = globalClock;
-        }
-        else if (qs3LastState && (!quickSwitchState && !quickSwitch12State))
-        {
-          qs3LastState = false;
-          analogTimer2[N] = globalClock;
-        }
-
-        if (pushState[starterRow - 1][starterCol - 1] == 1)
+        if (pushState[starterRow - 1][starterCol - 1] == 1 || pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
         {
           analogTimer2[N] = globalClock; 
         }
