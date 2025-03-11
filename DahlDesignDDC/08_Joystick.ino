@@ -3,7 +3,7 @@
 //-----------------------
 
 #define BUTTONCOUNT 105
-#define HATCOUNT 4
+#define HATCOUNT 1
 
 Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_JOYSTICK,
     BUTTONCOUNT,   //Button count
