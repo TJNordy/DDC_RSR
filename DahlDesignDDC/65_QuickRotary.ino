@@ -924,19 +924,8 @@ void quickRotary1PulseBite(int analogChannel, int fieldPlacement, int pos1, int 
         {
           value = quickValue1;
         }
-
-        if (!qs1LastState && (quickSwitchState || quickSwitch12State))
-        {
-          qs1LastState = true;
-          analogTimer2[N] = globalClock;
-        }
-        else if (qs1LastState && (!quickSwitchState && !quickSwitch12State))
-        {
-          qs1LastState = false;
-          analogTimer2[N] = globalClock;
-        }
         
-        if (pushState[starterRow - 1][starterCol - 1] == 1)
+        if (pushState[starterRow - 1][starterCol - 1] == 1 || pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
         {
           analogTimer2[N] = globalClock; 
         }
@@ -1039,6 +1028,14 @@ void quickRotary2Pulse(int analogChannel, int fieldPlacement, int pos1, int pos2
         }
         else if (globalClock - analogTimer1[N] > analogWait)
         {
+            //----------------------------------------------
+            //----------------QUICK SWITCH SETTING----------
+            //----------------------------------------------
+
+            if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
+            {
+                quickValue2 = result;
+            }
 
             //----------------------------------------------
             //----------------MODE CHANGE-------------------
@@ -1047,7 +1044,7 @@ void quickRotary2Pulse(int analogChannel, int fieldPlacement, int pos1, int pos2
             //Due to placement of this scope, mode change will only occur on switch rotation.
             //If you want to avoid switching mode, set fieldPlacement to 0.
 
-            if (pushState[modButtonRow - 1][modButtonCol - 1] == 1 && FieldPlacement != 0)
+            else if (pushState[modButtonRow - 1][modButtonCol - 1] == 1 && FieldPlacement != 0)
             {
                 for (int i = 0; i < maxPos + 1; i++) //Remove the remnants from SWITCH MODE 1
                 {
@@ -1106,19 +1103,8 @@ void quickRotary2Pulse(int analogChannel, int fieldPlacement, int pos1, int pos2
         {
           value = quickValue2;
         }
-
-        if (!qs2LastState && (quickSwitchState || quickSwitch12State))
-        {
-          qs2LastState = true;
-          analogTimer2[N] = globalClock;
-        }
-        else if (qs2LastState && (!quickSwitchState && !quickSwitch12State))
-        {
-          qs2LastState = false;
-          analogTimer2[N] = globalClock;
-        }
         
-        if (pushState[starterRow - 1][starterCol - 1] == 1)
+        if (pushState[starterRow - 1][starterCol - 1] == 1 || pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
         {
           analogTimer2[N] = globalClock; 
         }
