@@ -1,4 +1,4 @@
-void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, int pos3, int pos4, int pos5, int pos6, int pos7, int pos8, int pos9, int pos10, int pos11, int pos12, bool reverse)
+void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, int pos3, int pos4, int pos5, int pos6, int pos7, int pos8, int pos9, int pos10, int pos11, int pos12, bool reverse,  uint8_t offset)
 {
     int N = analogChannel - 1;
 
@@ -40,6 +40,15 @@ void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, 
 
     result--;
 
+    if (offset != 0)
+    {
+        result = result + offset;
+        if (result > 11)
+        {
+            result = result - maxPos;
+        }
+    }
+
     if (reverse)
     {
         result = 11 - result;
@@ -64,13 +73,22 @@ void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, 
         {
 
             //----------------------------------------------
+            //----------------QUICK SWITCH SETTING----------
+            //----------------------------------------------
+
+            if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
+            {
+                quickValue3 = result;
+            }
+
+            //----------------------------------------------
             //----------------MODE CHANGE-------------------
             //----------------------------------------------
 
             //Due to placement of this scope, mode change will only occur on switch rotation.
             //If you want to avoid switching mode, set fieldPlacement to 0.
 
-            if (pushState[modButtonRow - 1][modButtonCol - 1] == 1)
+            else if (pushState[modButtonRow - 1][modButtonCol - 1] == 1)
             {
                 for (int i = 0; i < maxPos + 1; i++) //Remove the remnants from SWITCH MODE 1
                 {
