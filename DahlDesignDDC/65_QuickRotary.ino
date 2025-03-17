@@ -256,6 +256,7 @@ void quickRotary2(int analogChannel, int fieldPlacement, int pos1, int pos2, int
 
     int Number = analogButtonNumber[N];
     int FieldPlacement = fieldPlacement;
+    int Reverse = reverse;
 
     int maxPos = 12;
 
