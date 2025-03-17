@@ -4,6 +4,7 @@ void quickRotary1bite(int analogChannel, int fieldPlacement, int pos1, int pos2,
 
     int Number = analogButtonNumber[N];
     int FieldPlacement = fieldPlacement;
+    int Reverse = reverse;
 
     int maxPos = 12;
 
@@ -76,6 +77,15 @@ void quickRotary1bite(int analogChannel, int fieldPlacement, int pos1, int pos2,
                 {
                     biteButtonBit1 = true;
                 }
+            }
+
+            //----------------------------------------------
+            //----------------QUICK SWITCH SETTING----------
+            //----------------------------------------------
+
+            else if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
+            {
+                quickValue1 = result;
             }
 
             //----------------------------------------------
@@ -215,20 +225,20 @@ void quickRotary1bite(int analogChannel, int fieldPlacement, int pos1, int pos2,
             {
                 if ((difference > 0 && difference < 5) || difference < -5)
                 {
-                    Joystick.setButton(Number, 1);
-                    Joystick.setButton(Number + 1, 0);
+                    Joystick.setButton(Number + Reverse, 1);
+                    Joystick.setButton(Number + 1 - Reverse, 0);
                 }
                 else
                 {
-                    Joystick.setButton(Number, 0);
-                    Joystick.setButton(Number + 1, 1);
+                    Joystick.setButton(Number + Reverse, 0);
+                    Joystick.setButton(Number + 1 - Reverse, 1);
                 }
             }
             else
             {
                 analogTempState[N] = 0;
-                Joystick.setButton(Number, 0);
-                Joystick.setButton(Number + 1, 0);
+                Joystick.setButton(Number + Reverse, 0);
+                Joystick.setButton(Number + 1 - Reverse, 0);
             }
         }
     }
@@ -308,13 +318,22 @@ void quickRotary2(int analogChannel, int fieldPlacement, int pos1, int pos2, int
         {
 
             //----------------------------------------------
+            //----------------QUICK SWITCH SETTING----------
+            //----------------------------------------------
+
+            if (pushState[qsButtonRow - 1][qsButtonCol - 1] == 1)
+            {
+                quickValue2 = result;
+            }
+
+            //----------------------------------------------
             //----------------MODE CHANGE-------------------
             //----------------------------------------------
 
             //Due to placement of this scope, mode change will only occur on switch rotation.
             //If you want to avoid switching mode, set fieldPlacement to 0.
 
-            if (pushState[modButtonRow - 1][modButtonCol - 1] == 1 && FieldPlacement != 0)
+            else if (pushState[modButtonRow - 1][modButtonCol - 1] == 1 && FieldPlacement != 0)
             {
                 for (int i = 0; i < maxPos + 1; i++) //Remove the remnants from SWITCH MODE 1
                 {
@@ -374,20 +393,20 @@ void quickRotary2(int analogChannel, int fieldPlacement, int pos1, int pos2, int
             {
                 if ((difference > 0 && difference < 5) || difference < -5)
                 {
-                    Joystick.setButton(Number, 1);
-                    Joystick.setButton(Number + 1, 0);
+                    Joystick.setButton(Number + Reverse, 1);
+                    Joystick.setButton(Number + 1 - Reverse, 0);
                 }
                 else
                 {
-                    Joystick.setButton(Number, 0);
-                    Joystick.setButton(Number + 1, 1);
+                    Joystick.setButton(Number + Reverse, 0);
+                    Joystick.setButton(Number + 1 - Reverse, 1);
                 }
             }
             else
             {
                 analogTempState[N] = 0;
-                Joystick.setButton(Number, 0);
-                Joystick.setButton(Number + 1, 0);
+                Joystick.setButton(Number + Reverse, 0);
+                Joystick.setButton(Number + 1 - Reverse, 0);
             }
         }
     }
