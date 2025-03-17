@@ -46,10 +46,11 @@ void presets(int8_t presetNumber)
     switch (presetNumber)
     {
     case 0: //PRESET 1 
+        
     analogSwitchMode1[1] = 1;
-    analogSwitchMode1[2] = 1;
     analogSwitchMode1[4] = 1;
     analogSwitchMode1[5] = 1;
+        
         break;
     case 1: //PRESET 2 
 
@@ -82,6 +83,10 @@ void presets(int8_t presetNumber)
 
         break;
     case 11: //PRESET 12 
+
+    analogSwitchMode1[1] = 1;
+    analogSwitchMode1[4] = 1;
+    analogSwitchMode1[5] = 1;
 
         break;
     }
