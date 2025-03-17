@@ -4,6 +4,7 @@ void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, 
 
     int Number = analogButtonNumber[N];
     int FieldPlacement = fieldPlacement;
+    int Reverse = reverse;
 
     int maxPos = 12;
 
@@ -156,20 +157,20 @@ void SW1PresetRotary(int analogChannel, int fieldPlacement, int pos1, int pos2, 
             {
                 if ((difference > 0 && difference < 5) || difference < -5)
                 {
-                    Joystick.setButton(Number, 1);
-                    Joystick.setButton(Number + 1, 0);
+                    Joystick.setButton(Number + Reverse, 1);
+                    Joystick.setButton(Number + 1 - Reverse, 0);
                 }
                 else
                 {
-                    Joystick.setButton(Number, 0);
-                    Joystick.setButton(Number + 1, 1);
+                    Joystick.setButton(Number + Reverse, 0);
+                    Joystick.setButton(Number + 1 - Reverse, 1);
                 }
             }
             else
             {
                 analogTempState[N] = 0;
-                Joystick.setButton(Number, 0);
-                Joystick.setButton(Number + 1, 0);
+                Joystick.setButton(Number + Reverse, 0);
+                Joystick.setButton(Number + 1 - Reverse, 0);
             }
         }
     }
