@@ -46,7 +46,7 @@
 //------------------------------
 
 //Enable board
-#define USING_CB1 1
+#define USING_CB1 0
 #define USING_CB2 0
 
 //------------------------------
